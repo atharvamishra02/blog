@@ -29,7 +29,7 @@ export default function RegisterPage() {
           headers: {
             Authorization: `Bearer ${tokenResponse.access_token}`,
           },
-        }
+        },
       );
 
       const userInfo = await userInfoResponse.json();
@@ -100,11 +100,19 @@ export default function RegisterPage() {
 
   return (
     <div className="min-h-screen w-full flex items-center justify-center relative">
-      <div
-        className="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/bg.mp4')" }}
-      ></div>
-      <div className="fixed inset-0 z-10 bg-black/50"></div>
+      {/* Background Video/Image */}
+      <div className="fixed inset-0 z-0 bg-slate-900">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover opacity-50"
+        >
+          <source src="/bg.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div className="fixed inset-0 z-10 bg-black/40 backdrop-blur-[2px]"></div>
 
       <div className="relative z-20 w-full max-w-md px-6">
         <div className="bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl p-8">
